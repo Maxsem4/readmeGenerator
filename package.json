@@ -1,0 +1,16 @@
+{
+  "name": "readmeGenerator",
+  "version": "1.0.0",
+  "description": "Create a README file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maxsem4",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "dotenv": "^8.0.0",
+    "inquirer": "^6.3.1"
+  }
+}
