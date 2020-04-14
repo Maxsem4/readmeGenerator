@@ -23,6 +23,6 @@ Contributions, issues and feature requests are welcome.<br />
 ## 📝 License
 
 Copyright © 2019 [Max Semegen](https://github.com/Maxsem4).<br />
-This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.
+This project is [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 \_This README was generated with ❤️ by Max Semegen
