@@ -35,6 +35,12 @@ const questions = [
       "If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project."
   },
   {
+    name: "license",
+    type: "input",
+    message: "Choose a license:",
+    choices: ["MIT", "Mozilla_PL_2", "GNU_3", "Apache"]
+  },
+  {
     name: "contributing",
     type: "input",
     message: "How can someone contribute to this project:",
@@ -57,6 +63,7 @@ const questions = [
 ];
 
 username()
+  .then(repoName)
   .then(apiCall)
   .then(askQuestions)
   .then(makeReadme)
@@ -66,6 +73,13 @@ function username() {
   return inquirer.prompt({
     message: "Provide your GitHub username:",
     name: "username"
+  });
+}
+
+function repoName() {
+  return inquirer.prompt({
+    message: "Provide GitHub repository name",
+    name: "repoName"
   });
 }
 
@@ -84,8 +98,25 @@ function askQuestions() {
   return inquirer.prompt(questions);
 }
 
-function makeReadme(answers) {
-  return `\n# ${answers.title}\n## Description\n${answers.description}\n## Instaling\n${answers.installing}\n## How to use?\n${answers.usage}\n## Contribute\n${answers.contributing}\n## Tests\n${answers.test}\n## Questions\n Email: 'hidden'\n [profile image] (${profilePic})`;
+function makeReadme(data) {
+  let lastCommit = `![Last Commit](https://img.shields.io/github/last-commit/${data.username}/${data.repoName})`;
+  let openIssues = `![GitHub issues](https://img.shields.io/github/issues-raw/${data.username}/${data.repoName})`;
+  let codeSize = `![Code-size](https://img.shields.io/github/languages/code-size/${data.username}/${data.repoName})`;
+  let contributors = `![Contributors](https://img.shields.io/github/contributors/${data.username}/${data.repoName})`;
+
+  let badge;
+
+  if (data.license === "MIT") {
+    badge = "https://img.shields.io/badge/License-MIT-yellow.svg";
+  } else if (data.license === "Mozilla_PL_2") {
+    badge = "https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg";
+  } else if (data.license === "GNU_3") {
+    badge = "https://img.shields.io/badge/License-GPLv3-blue.svg";
+  } else if (data.license === "Apache") {
+    badge = "https://img.shields.io/badge/License-Apache%202.0-blue.svg";
+  }
+
+  return `\n# ${data.title}\n${openIssues} ${contributors} ${codeSize} ${lastCommit}\n## Description\n${data.description}\n## Table of Contents\n* [Installing](#Installing)\n* [How_to_use?](#How_to_Use?)\n* [License](#License)\n* [Contribute](#Contribute)\n* [Tests](#Tests)\n* [Questions](#Questions)\n ## Installing\n${data.installing}\n## How_to_use?\n${data.usage}\n## License\n ${badge}\n## Contribute\n${data.contributing}\n## Tests\n${data.test}\n## Questions\n Email: 'hidden'\n [profile image] (${profilePic})`;
 }
 
 async function generateReadme(data) {
