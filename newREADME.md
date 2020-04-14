@@ -15,7 +15,7 @@ Provide step by step series of examples and explanations about how to get a deve
 ## How_to_use?
 If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
 ## License
- (https://img.shields.io/badge/License-MIT-yellow.svg)
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Contribute
 Let people know how they can contribute into your project. A contributing guideline will be a big plus.
 ## Tests
