@@ -107,13 +107,17 @@ function makeReadme(data) {
   let badge;
 
   if (data.license === "MIT") {
-    badge = "https://img.shields.io/badge/License-MIT-yellow.svg";
+    badge =
+      "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
   } else if (data.license === "Mozilla_PL_2") {
-    badge = "https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg";
+    badge =
+      "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
   } else if (data.license === "GNU_3") {
-    badge = "https://img.shields.io/badge/License-GPLv3-blue.svg";
+    badge =
+      "[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)";
   } else if (data.license === "Apache") {
-    badge = "https://img.shields.io/badge/License-Apache%202.0-blue.svg";
+    badge =
+      "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
   }
 
   return `\n# ${data.title}\n${openIssues} ${contributors} ${codeSize} ${lastCommit}\n## Description\n${data.description}\n## Table of Contents\n* [Installing](#Installing)\n* [How_to_use?](#How_to_Use?)\n* [License](#License)\n* [Contribute](#Contribute)\n* [Tests](#Tests)\n* [Questions](#Questions)\n ## Installing\n${data.installing}\n## How_to_use?\n${data.usage}\n## License\n ${badge}\n## Contribute\n${data.contributing}\n## Tests\n${data.test}\n## Questions\n Email: 'hidden'\n [profile image] (${profilePic})`;
